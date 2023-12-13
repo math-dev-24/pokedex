@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    font-family: 'Karla', sans-serif;
+}
+
+h1{
+    font-size: 72px;
+}
+h2{
+    font-size: 64px;
+}
+h3{
+    font-size: 36px;
+}
+h4{
+    font-size: 24px;
+}
+h5{
+    font-size: 18px;
+}
+h6{
+    font-size: 12px;
+}
+p{
+    font-size: 16px;
+}
+
+.shad-1{
+    filter: drop-shadow(4px, 4px, 24px, #011126)
+}
+#btn{
+    width: 150px;
+    text-align: center;
+    background: #F2B807;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 8px 0px #F28F16;
+    display: block;
+    margin: auto;
+    font-weight: bold;
+}
+
+#btn:hover{
+    transform: translateY(4px);
+    box-shadow: 0px 4px 0px #F28F16;
+}
