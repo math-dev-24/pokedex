@@ -13,6 +13,9 @@ onMounted(() => pokeStore.getAbilities())
   <div class="w-screen top-0 left-0 min-h-screen bg-drakpok opacity-40 absolute" @click="pokeStore.showFocus = false"></div>
   <div id="content" class="absolute rounded-xl p-8" v-if="!pokeStore.load_focus">
     <h3 class="text-4xl text-center mb-6">{{pokemon.name}}</h3>
+    <div>
+      <span>Version :</span><span class="italic mx-0.5" v-for="version in pokemon.game_indices" :key="version.version.name">{{version.version.name}},</span>
+    </div>
     <div class="text-center border border-primary rounded-xl my-2">
       <div>{{pokemon.height}} m</div>
       <div>{{pokemon.weight}} kg</div>
@@ -43,8 +46,10 @@ onMounted(() => pokeStore.getAbilities())
 
 <style scoped lang="sass">
 #content
-  width: 75%
-  top: 2%
-  left: 12.5%
+  width: 80%
+  height: 80%
+  overflow: auto
+  top: 10%
+  left: 10%
   background: white
 </style>
