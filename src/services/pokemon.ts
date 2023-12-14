@@ -1,22 +1,19 @@
 // Lien documentation : https://pokeapi.co/
-
 const base_url : string = "https://pokeapi.co/api/v2/"
 
-export async function getPokemons(offset: number, limit: number) {
-    const response = await fetch(`${base_url}pokemon?limit=${limit}&offset=${offset}`)
-
-    if (response.ok){
+export async function fetchDataGet(url: string){
+    try{
+        const response = await fetch(url)
+        if(!response.ok) {
+            throw new Error("HTTP error !" + response.status)
+        }
         return await response.json()
-    }else{
-        return Promise.reject(new Error("Erreur !"))
+    }catch (e){
+        console.error("Fetch error : ", e)
+        throw e
     }
 }
-export async function getPokemon(url: string) {
-    const response = await fetch(url)
 
-    if (response.ok){
-        return await response.json()
-    }else{
-        return Promise.reject(new Error("Erreur !"))
-    }
+export async function getPokemons(offset: number, limit: number) {
+    return await fetchDataGet(`${base_url}pokemon?limit=${limit}&offset=${offset}`)
 }

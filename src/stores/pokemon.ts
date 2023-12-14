@@ -1,29 +1,28 @@
 import { defineStore } from 'pinia'
-import type {PokemonInterface, PokemonSimpleInterface} from "@/interfaces/pokemonInterface";
-import {getWithUrl} from "@/services/fetchUrl";
-import {getPokemon, getPokemons} from "@/services/pokemon";
-import type {AbilitieInterface} from "@/interfaces/abilitieInterface";
+import type {PokemonInterface, PokemonSimple} from "@/interfaces/pokemonInterface";
+import {getPokemons, fetchDataGet} from "@/services/pokemon";
+import type {AbilityInterface} from "@/interfaces/abilitieInterface";
 
-interface pokemonStore{
+interface pokemonStoreInterface{
     pokemons : PokemonInterface[];
     pokemonFocusName : string,
-    abilities : AbilitieInterface[],
+    abilities : AbilityInterface[],
     showFocus: boolean,
-    in_loading: boolean;
-    load_focus: boolean;
+    isLoadingList: boolean;
+    isLoadingAbility: boolean;
     page : number;
     limit : number;
     need_refresh : boolean;
 }
 
 export const usePokemonStore = defineStore("pokemons", {
-    state: (): pokemonStore => ({
+    state: (): pokemonStoreInterface => ({
         pokemons: [],
-        in_loading: false,
+        isLoadingList: false,
+        isLoadingAbility: false,
         pokemonFocusName: "",
         abilities: [],
         showFocus: false,
-        load_focus: false,
         page: 1,
         limit: 9,
         need_refresh: true
@@ -35,24 +34,24 @@ export const usePokemonStore = defineStore("pokemons", {
     },
     actions: {
         async getListPokemon(){
-            this.in_loading = true
-            const response = await getPokemons((this.page - 1) * 10, this.limit)
-            const data: PokemonSimpleInterface[] = response.results
+            this.isLoadingList = true
+            const response = await getPokemons((this.page - 1) * 9, this.limit)
+            const data: PokemonSimple[] = response.results
             for (const poke of data){
-                const pokeData = await getPokemon(poke.url)
+                const pokeData = await fetchDataGet(poke.url)
                 this.pokemons.push(pokeData)
             }
-            this.in_loading = false
+            this.isLoadingList = false
         },
         async getAbilities(){
-            this.load_focus = true
+            this.isLoadingAbility = true
             this.abilities = []
             const pokemon = this.pokemons.filter(p => p.name == this.pokemonFocusName)[0]
             for (const ability of pokemon.abilities){
-                const currentAbi = await getWithUrl(ability.ability.url)
+                const currentAbi = await fetchDataGet(ability.ability.url)
                 this.abilities.push(currentAbi)
             }
-            this.load_focus = false
+            this.isLoadingAbility = false
         }
     }
 })

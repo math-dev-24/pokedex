@@ -1,23 +1,16 @@
-interface flavorInterface{
-    flavor_text: string,
-    language: {
-        name: string,
-        url: string
-    },
-    version_group: {
-        name : string,
-        url : string
-    }
+interface NamedResource {
+    name: string;
+    url: string;
 }
 
-interface generationInterface{
-    name: string,
-    url: string
+interface FlavorText {
+    flavor_text: string;
+    language: NamedResource;
+    version_group: NamedResource;
 }
 
-export interface AbilitieInterface{
-    name: string,
-    flavor_text_entries: flavorInterface[],
-    generation: generationInterface[],
-
+export interface AbilityInterface {
+    name: string;
+    flavor_text_entries: FlavorText[];
+    generation: NamedResource[];
 }
