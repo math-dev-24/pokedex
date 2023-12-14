@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {PokemonInterface} from "@/interfaces/pokemonInterface";
-import TypePoke from "@/components/TypePoke.vue"
 
 const { pokemon } = defineProps<{
   pokemon : PokemonInterface
@@ -9,15 +8,11 @@ const { pokemon } = defineProps<{
 </script>
 
 <template>
-  <div class="rounded-xl p-4 drop-shadow-xl bg-withepok relative" id="card">
+  <div class="rounded-xl py-4 px-8 drop-shadow bg-withepok relative hover:drop-shadow-xl transition duration-150" id="card">
     <h5 class="text-2xl font-bold">{{pokemon.name}}</h5>
-    <div>
-      <p>Poids : {{pokemon.weight}}</p>
-      <p>Taille : {{pokemon.height}}</p>
-    </div>
     <img :src="pokemon.sprites.front_default" />
-    <div>
-      <TypePoke v-for="type in pokemon.types" :key="type.slot" :type="type.type" />
+    <div class="flex gap-2">
+      <div v-for="type in pokemon.types" :key="type.type.name" >{{type.type.name}}</div>
     </div>
     <div id="colorFond"></div>
   </div>

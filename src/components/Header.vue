@@ -14,7 +14,7 @@
 </template>
 <style lang="sass" scoped>
 header
-  box-shadow: 2px 2px 10px black
+  box-shadow: 2px 2px 10px #adadad
   img
       width: 120px
   ul a

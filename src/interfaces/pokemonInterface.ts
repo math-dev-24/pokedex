@@ -1,8 +1,10 @@
 interface abilitiesInterface{
-    name: string,
-    url: string,
-    is_hidden: boolean,
-    slot: number
+   ability : {
+       name: string,
+       url: string,
+       is_hidden: boolean,
+       slot: number
+   }
 }
 interface formInterface{
     name: string,
