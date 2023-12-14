@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div id="Home" class="grid grid-cols-2">
+  <div id="Home" class="grid grid-cols-2 flex-1">
     <div>
       <h2>Findall your favorite Pokemon</h2>
       <h3>You can know the type of Pokemon, its strengths, disadvantages and abilities</h3>
@@ -15,8 +15,7 @@
   </div>
 </template>
 <style scoped lang="sass">
-
-#page
+#Home
   background: linear-gradient(#F5DB13, #F2B807)
   
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-third w-full py-6 flex shad-1">
+    <header class="bg-third flex w-full py-6">
         <div class="flex-1 px-14">
             <img src="../../public/pokemon.svg" alt="pokemonIco">
         </div>
@@ -14,10 +14,11 @@
 </template>
 <style lang="sass" scoped>
 header
-    img
-        width: 120px
-    ul a
-        font-size: 25px
+  box-shadow: 2px 2px 10px black
+  img
+      width: 120px
+  ul a
+      font-size: 25px
 .router-link-active
     position: relative
     &::after
