@@ -25,14 +25,14 @@ async function focusPokemon(pokemonName: string){
 </script>
 
 <template>
-    <div class="container m-auto"  v-if="!pokeStore.in_loading">
+    <div class="container m-auto mt-14"  v-if="!pokeStore.isLoadingList">
       <h2 class="text-4xl text-center">800 <b>Pokemons</b> for you to choose your favorite</h2>
       <input type="text" class="w-full rounded-2xl bg-withepok text-xl py-4 px-8 my-4 drop-shadow-xl outline-primary"/>
 
       <div class="grid grid-cols-3 gap-8 mt-6 mb-14">
         <PokeCard v-for="pokeData in pokeStore.pokemons" :key="pokeData.name" :pokemon="pokeData" @click="focusPokemon(pokeData.name)" />
       </div>
-      <div class="w-full flex justify-between gap-8"  v-if="!pokeStore.in_loading" >
+      <div class="w-full flex justify-between gap-8">
         <div
             class="cursor-pointer w-full px-6 py-4 rounded bg-primary text-xl text-center hover:bg-second transition duration-300"
              :class="{'hidden' : pokeStore.page === 1}"

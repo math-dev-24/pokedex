@@ -11,18 +11,15 @@ onMounted(() => pokeStore.getAbilities())
 
 <template>
   <div class="w-screen top-0 left-0 min-h-screen bg-drakpok opacity-40 absolute" @click="pokeStore.showFocus = false"></div>
-  <div id="content" class="absolute rounded-xl p-8" v-if="!pokeStore.load_focus">
+  <div id="content" class="absolute rounded-xl p-8" v-if="!pokeStore.isLoadingAbility">
     <h3 class="text-4xl text-center mb-6">{{pokemon.name}}</h3>
-    <div>
-      <span>Version :</span><span class="italic mx-0.5" v-for="version in pokemon.game_indices" :key="version.version.name">{{version.version.name}},</span>
-    </div>
     <div class="text-center border border-primary rounded-xl my-2">
       <div>{{pokemon.height}} m</div>
       <div>{{pokemon.weight}} kg</div>
     </div>
     <img class="h-32 w-32 m-auto" :src="pokemon.sprites.front_default"/>
     <div class="grid grid-cols-2 text-center my-6 font-bold text-xl">
-      <div v-for="types in pokemon.types" :key="types">{{types.type.name}}</div>
+      <div v-for="types in pokemon.types" :key="types.slot">{{types.type.name}}</div>
     </div>
     <h4 class="mt-6">Stats :</h4>
     <div class="grid grid-cols-6">
