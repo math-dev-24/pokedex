@@ -8,23 +8,15 @@ console.log(pokemon)
 </script>
 
 <template>
-  <div class="rounded-xl py-6 px-10 drop-shadow bg-withepok relative hover:drop-shadow-xl transition duration-150" id="card">
-    <h5 class="text-2xl uppercase font-bold mb-4">{{pokemon.name}}</h5>
-    <img :src="pokemon.sprites.front_default" />
-    <div class="flex gap-2">
-      <div v-for="type in pokemon.types" :key="type.type.name"  class="italic">{{type.type.name}}</div>
+  <div class="rounded-xl py-6 px-10 drop-shadow-xl bg-withepok relative hover:drop-shadow transition duration-150 grid grid-cols-2 cursor-pointer">
+    <div class="flex flex-col gap-2 px-8 flex-1">
+      <h5 class="text-2xl uppercase font-bold mb-4">{{pokemon.name}}</h5>
+      <ul class="flex gap-2">
+        <li v-for="type in pokemon.types" :key="type.type.name"  class="italic">{{type.type.name}}</li>
+      </ul>
     </div>
-    <div class="absolute top-0 left-1 text-xl font-bold">{{pokemon.id}}</div>
+    <img alt="pokemon" class="h-32 w-32 m-auto" :src="pokemon.sprites.front_default"/>
+    <div class="absolute top-2 left-4 text-2xl font-bold">{{pokemon.id}}</div>
   </div>
 
 </template>
-
-<style scoped lang="sass">
-#card
-  overflow: hidden
-  img
-    position: absolute
-    right: 2%
-    top: 0
-    z-index: 5
-</style>

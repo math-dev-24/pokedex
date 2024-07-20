@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header ul {
+    @apply flex items-center justify-center;
+    li {
+        @apply p-2 mx-4 my-4 text-center text-xl;
+        a.router-link-active {
+            @apply font-bold;
+        }
+        a:not(.router-link-active):hover {
+            @apply underline;
+        }
+    }
+}

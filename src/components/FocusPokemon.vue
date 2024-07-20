@@ -10,7 +10,7 @@ onMounted(() => pokeStore.getAbilities())
 </script>
 
 <template>
-  <div class="w-screen top-0 left-0 min-h-screen bg-drakpok opacity-40 absolute" @click="pokeStore.showFocus = false"></div>
+  <div class="w-[100vw] top-0 left-0 h-screen bg-drakpok opacity-40 absolute" @click="pokeStore.showFocus = false"></div>
   <div id="content" class="absolute rounded-xl p-8" v-if="!pokeStore.isLoadingAbility">
     <h3 class="text-4xl text-center mb-6">{{pokemon.name}}</h3>
     <div class="text-center border border-primary rounded-xl my-2">

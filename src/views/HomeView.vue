@@ -3,15 +3,17 @@
 </script>
 
 <template>
-  <div id="Home" class="flex flex-col gap-5 pl-24">
-      <h2 class="text-6xl">Findall your favorite Pokemon</h2>
-      <h3 class="text-4xl">You can know the type of Pokemon, its strengths, disadvantages and abilities</h3>
-      <router-link to="pokemons" class="text-2xl border p-4 rounded hover:bg-second transition duration-300 text-center md:w-1/3">Voir les pokemons !</router-link>
-      <img src="../../public/banner.png" alt="pokemonImg" class="absolute right-0">
+  <div class="flex">
+    <div class="flex-1 py-24 px-16">
+      <h1 class="text-3xl font-bold">Findall your favorite Pokemon</h1>
+      <h2 class="text-xl font-bold">You can know the type of Pokemon, its strengths, disadvantages and abilities</h2>
+      <router-link
+          to="pokemons"
+          class="block my-8 border px-4 py-2 w-[250px] rounded font-bold hover:bg-primary hover:text-white transition duration-150"
+      >
+        Voir les pokemons !
+      </router-link>
+    </div>
+      <img src="../../public/banner.png" alt="pokemonImg">
   </div>
 </template>
-<style scoped lang="sass">
-#Home
-  background: linear-gradient(#F5DB13, #F2B807)
-  
-</style>

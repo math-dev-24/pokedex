@@ -1,33 +1,14 @@
 <template>
-    <header class="bg-third flex w-full py-6">
-        <div class="flex-1 px-14">
-            <img src="../../public/pokemon.svg" alt="pokemonIco">
+    <header class="bg-third flex">
+        <div class="flex-1">
+            <img src="../../public/pokemon.svg" alt="pokemonIco" class="mx-4 my-4"/>
         </div>
         <nav>
-            <ul class="flex gap-14 px-8 mr-14 h-full">
-                <router-link to="/">Home</router-link>
-                <router-link to="/pokemons">Pokédex</router-link>
-                <router-link to="/documentation">Documentation</router-link>
+            <ul class="flex">
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/pokemons">Pokédex</router-link></li>
+                <li><router-link to="/documentation">Documentation</router-link></li>
             </ul>
         </nav>
     </header>
 </template>
-<style lang="sass" scoped>
-header
-  box-shadow: 2px 2px 10px #adadad
-  img
-      width: 120px
-  ul a
-      font-size: 25px
-.router-link-active
-    position: relative
-    &::after
-        content: ""
-        width: 80%
-        height: 2px
-        background: black
-        position: absolute
-        bottom: 5px
-        left: 10%
-
-</style>
